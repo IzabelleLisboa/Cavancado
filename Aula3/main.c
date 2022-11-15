@@ -4,6 +4,14 @@
 //--------------------------EX2--------------------
 //receber 3 valores diferentes e multiplicar o menor valor por 10, o maior por 30 e o outro por 20
 
+void op_multiplica(int *pm ,int *pi ,int*pn){
+*pm *= 30;
+*pi *= 20;
+*pn *= 10;
+
+}
+
+
 void multiplica(int *pa,int *pb,int *pc)
 {
 int a,b,c;
@@ -13,38 +21,28 @@ c=*pc;
 
 if (a>b && a>c)//a e maior
     if(b>c){
-    *pa=*pa *30;
-    *pb=*pb *20;
-    *pc=*pc *10;
-
+    op_multiplica(pa,pb,pc);
 }else {
-    *pa=*pa *30;
-    *pb=*pb *10;
-    *pc=*pc *20;
+      op_multiplica(pa,pb,pc);
+
 }else {
     if(b>c)
         if(a>c){
-            *pa=*pa *20;
-            *pb=*pb *30;
-            *pc=*pc *10;
+           op_multiplica(pa,pb,pc);
+
             }else{
-                *pa=*pa *10;
-                *pb=*pb *30;
-                *pc=*pc *20;
-            }else{
-                if(a>b){
-                    *pa=*pa *20;
-                    *pb=*pb *10;
-                    *pc=*pc *30;
+                  op_multiplica(pa,pb,pc);
+
                 }else{
-                   *pa=*pa *10;
-                    *pb=*pb *20;
-                    *pc=*pc *30;
+                    if(a>b){
+                           op_multiplica(pa,pb,pc);
 
-            }
+                    }else{
+                          op_multiplica(pa,pb,pc);
+
         }
+    }
 }
-
 
 
 }
@@ -58,9 +56,9 @@ scanf("%d",&b);
 printf("c=");
 scanf("%d",&c);
 
-printf("\n Valores inseridos: %d %d %d",a,b,c);
+printf("\n Valores inseridos: %d \t %d  \t %d",a,b,c);
 multiplica(&a,&b,&c);
-printf("\nDepois da funcao\nValores a= %d b= %d c= %d",a,b,c);
+printf("\nDepois da funcao\nValores a= %d \t b= %d  \t c= %d",a,b,c);
 
 
 }
